@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   vexana: ^3.4.0
   json_annotation: ^4.8.0
+  bloc: ^8.1.1
+  flutter_bloc: ^8.1.2
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:
