@@ -13,13 +13,33 @@ class TodoView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Vexana"),
+        title: Text("Vexana and Cubit"),
       ),
       body: BlocProvider(
-          create: (context) => TodoCubit(TodoService()),
-          child: BlocConsumer<TodoCubit, TodoState>(
-              listener: (context, state) {},
-              builder: (context, state) => Column())),
+        create: (context) => TodoCubit(TodoService()),
+        child: BlocConsumer<TodoCubit, TodoState>(
+          listener: (context, state) {},
+          builder: (context, state) => Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: context.read<TodoCubit>().todoModel?.length ?? 0,
+                  itemBuilder: (context, index) {
+                    final model = context.read<TodoCubit>().todoModel?[index];
+                    return Card(
+                      child: ListTile(
+                        leading: Text(model?.id.toString() ?? ""),
+                        title: Text(model?.email ?? ""),
+                      ),
+                    );
+                  },
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
