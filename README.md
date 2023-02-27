@@ -1,4 +1,4 @@
-# vexana_vb10
+# **[vexana_vb10](https://pub.dev/packages/vexana)**
 
 * dynamic model parsing
 * base error model
